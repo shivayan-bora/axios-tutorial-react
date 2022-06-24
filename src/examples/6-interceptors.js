@@ -1,10 +1,17 @@
 import { useEffect } from 'react';
+import authFetch from '../axios/interceptor';
 
-const url = 'https://course-api.com/react-store-products';
+// const url = 'https://course-api.com/react-store-products';
 
 const Interceptors = () => {
   const fetchData = async () => {
-    console.log('axios interceptors');
+    try {
+      const resp1 = await authFetch.get('/react-store-products');
+      console.log('Printing the Response')
+      console.log(resp1);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
